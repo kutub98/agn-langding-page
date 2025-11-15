@@ -128,7 +128,7 @@ export default function LeadForm() {
               control={control}
               name="businessType"
               render={({ field }) => (
-                <Select {...field} className="rounded-xl">
+                <Select {...field}>
                   <SelectItem value="ecommerce">Ecommerce</SelectItem>
                   <SelectItem value="agency">Agency</SelectItem>
                   <SelectItem value="saas">SaaS</SelectItem>

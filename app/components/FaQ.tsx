@@ -6,6 +6,8 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
+// import { ChevronDown } from "lucide-react";
 
 export default function FAQ() {
   const faqs = [
@@ -36,21 +38,40 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-center">
+    <section className="py-24 px-6 bg-gradient-to-br from-blue-50 via-white to-blue-50">
+      <div className="max-w-4xl mx-auto text-center mb-12">
+        <h2 className="text-3xl font-extrabold mb-4">
           Frequently Asked Questions
         </h2>
-
-        <Accordion type="single" collapsible>
-          {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger>{f.q}</AccordionTrigger>
-              <AccordionContent>{f.a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <p className="text-gray-600">
+          Answers to the questions we get most often about our services.
+        </p>
       </div>
+
+      <Accordion
+        type="single"
+        collapsible
+        className="space-y-4 max-w-3xl mx-auto"
+      >
+        {faqs.map((f, i) => (
+          <AccordionItem key={i} value={`item-${i}`} asChild>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+            >
+              <AccordionTrigger className="flex justify-between items-center px-6 py-4 cursor-pointer hover:bg-blue-50 transition-colors duration-200 font-semibold text-gray-800 text-lg rounded-2xl">
+                {f.q}
+                {/* <ChevronDown className="w-5 h-5 text-blue-500 transition-transform duration-300" /> */}
+              </AccordionTrigger>
+              <AccordionContent className="px-6 py-4 text-gray-600 text-sm border-t border-gray-100">
+                {f.a}
+              </AccordionContent>
+            </motion.div>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </section>
   );
 }
