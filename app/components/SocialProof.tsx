@@ -48,9 +48,9 @@ export default function SocialProof() {
           transition={{ duration: 1 }}
           className="flex gap-6 items-center justify-center flex-wrap mb-16"
         >
-          <Image src="/logos/logo1.svg" width={120} height={40} alt="logo1" />
-          <Image src="/logos/logo2.svg" width={120} height={40} alt="logo2" />
-          <Image src="/logos/logo3.svg" width={120} height={40} alt="logo3" />
+          <Image src="/sponsorunited.jpeg" width={60} height={40} alt="logo1" />
+          <Image src="/sponsorunited.jpeg" width={60} height={40} alt="logo2" />
+          <Image src="/sponsorunited.jpeg" width={60} height={40} alt="logo3" />
         </motion.div>
 
         {/* Testimonials */}
@@ -66,7 +66,7 @@ export default function SocialProof() {
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-blue-500 shadow-md">
                   <Image
-                    src={r.avatar}
+                    src="/10542459.png"
                     alt={r.name}
                     width={56}
                     height={56}
