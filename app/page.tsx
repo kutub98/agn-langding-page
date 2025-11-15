@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import ProblemSolution from "./components/ProblemSolution";
 import Services from "./components/Services";
+import SocialProof from "./components/SocialProof";
 import WhyChooseUs from "./components/WhyChooseUs";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <ProblemSolution />
       <Services />
       <WhyChooseUs />
+      <SocialProof/>
     </main>
   );
 }
