@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import Pricing from "./components/Pricing";
 import ProblemSolution from "./components/ProblemSolution";
 import Services from "./components/Services";
 import SocialProof from "./components/SocialProof";
@@ -11,7 +12,8 @@ export default function Home() {
       <ProblemSolution />
       <Services />
       <WhyChooseUs />
-      <SocialProof/>
+      <SocialProof />
+      <Pricing />
     </main>
   );
 }
