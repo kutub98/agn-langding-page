@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const config: Config = {
+  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [tailwindcssAnimate],
 };
 
-export default nextConfig;
+export default config;
