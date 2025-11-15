@@ -1,4 +1,8 @@
+import BookingCTA from "./components/BookingCTA";
+import FAQ from "./components/FaQ";
+import FinalCTA from "./components/FinalCTA";
 import Hero from "./components/Hero";
+import LeadForm from "./components/LeadForm";
 import Pricing from "./components/Pricing";
 import ProblemSolution from "./components/ProblemSolution";
 import Services from "./components/Services";
@@ -14,6 +18,10 @@ export default function Home() {
       <WhyChooseUs />
       <SocialProof />
       <Pricing />
+      <LeadForm />
+      <BookingCTA />
+      <FAQ />
+      <FinalCTA />
     </main>
   );
 }
