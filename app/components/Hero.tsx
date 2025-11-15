@@ -27,7 +27,7 @@ export default function Hero() {
 
       <div className="mt-8 flex gap-4">
         <Button size="lg" className="rounded-full px-8">
-          Book a Free Consultation
+          Book a Free
         </Button>
 
         <Button size="lg" variant="outline" className="rounded-full px-8">
