@@ -11,17 +11,46 @@ import WhyChooseUs from "./components/WhyChooseUs";
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full">
-      <Hero />
-      <ProblemSolution />
-      <Services />
-      <WhyChooseUs />
-      <SocialProof />
-      <Pricing />
-      <LeadForm />
-      <BookingCTA />
-      <FAQ />
-      <FinalCTA />
+    <main className="flex flex-col w-full scroll-smooth">
+      <section id="hero">
+        <Hero />
+      </section>
+
+      <section id="problem">
+        <ProblemSolution />
+      </section>
+
+      <section id="services">
+        <Services />
+      </section>
+
+      <section id="why-us">
+        <WhyChooseUs />
+      </section>
+
+      <section id="social-proof">
+        <SocialProof />
+      </section>
+
+      <section id="pricing">
+        <Pricing />
+      </section>
+
+      <section id="lead-form">
+        <LeadForm />
+      </section>
+
+      <section id="booking">
+        <BookingCTA />
+      </section>
+
+      <section id="faq">
+        <FAQ />
+      </section>
+
+      <section id="final-cta">
+        <FinalCTA />
+      </section>
     </main>
   );
 }
