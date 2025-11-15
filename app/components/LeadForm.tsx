@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectItem } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
 
 const LeadSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -48,62 +49,86 @@ export default function LeadForm() {
   }
 
   return (
-    <section id="lead-form" className="py-12 px-6 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-4">
+    <section
+      id="lead-form"
+      className="py-24 px-6 bg-gradient-to-br from-blue-50 via-white to-blue-50"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="max-w-3xl mx-auto bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-10"
+      >
+        <h2 className="text-3xl font-extrabold text-center mb-4">
           Get a Free Quote
         </h2>
-        <p className="text-center text-gray-600 mb-6">
-          Short form — we’ll review and reach out within one business day.
+        <p className="text-center text-gray-600 mb-10">
+          Fill out the form below — we’ll review and reach out within one
+          business day.
         </p>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {/* Name */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
             <label className="block text-sm font-medium mb-1">Name</label>
-            <Input {...register("name")} />
+            <Input {...register("name")} className="rounded-xl" />
             {errors.name && (
               <div className="text-sm text-red-600 mt-1">
                 {errors.name.message}
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Email */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+          >
             <label className="block text-sm font-medium mb-1">Email</label>
-            <Input {...register("email")} />
+            <Input {...register("email")} className="rounded-xl" />
             {errors.email && (
               <div className="text-sm text-red-600 mt-1">
                 {errors.email.message}
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Phone */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
             <label className="block text-sm font-medium mb-1">Phone</label>
-            <Input {...register("phone")} />
+            <Input {...register("phone")} className="rounded-xl" />
             {errors.phone && (
               <div className="text-sm text-red-600 mt-1">
                 {errors.phone.message}
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Business Type */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+          >
             <label className="block text-sm font-medium mb-1">
-              Business type
+              Business Type
             </label>
             <Controller
               control={control}
               name="businessType"
               render={({ field }) => (
-                <Select {...field}>
+                <Select {...field} className="rounded-xl">
                   <SelectItem value="ecommerce">Ecommerce</SelectItem>
                   <SelectItem value="agency">Agency</SelectItem>
                   <SelectItem value="saas">SaaS</SelectItem>
@@ -111,22 +136,42 @@ export default function LeadForm() {
                 </Select>
               )}
             />
-          </div>
+          </motion.div>
 
           {/* Support Needed */}
-          <div className="md:col-span-2">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="md:col-span-2"
+          >
             <label className="block text-sm font-medium mb-1">
               What support do you need?
             </label>
-            <Textarea {...register("supportNeeded")} rows={4} />
-          </div>
+            <Textarea
+              {...register("supportNeeded")}
+              rows={4}
+              className="rounded-xl"
+            />
+          </motion.div>
 
           {/* Buttons */}
-          <div className="md:col-span-2 flex gap-3 justify-center">
-            <Button type="submit">Get a Free Quote</Button>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="md:col-span-2 flex gap-4 justify-center mt-4"
+          >
+            <Button
+              type="submit"
+              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-full hover:from-purple-500 hover:to-blue-500 shadow-lg transition-all duration-300"
+            >
+              Get a Free Quote
+            </Button>
 
             <Button
               variant="outline"
+              className="px-8 py-3 rounded-full border-blue-500 text-blue-600 hover:bg-blue-50 transition-colors duration-300"
               onClick={() => {
                 const widget = document.getElementById("calendly-embed");
                 if (widget) widget.scrollIntoView({ behavior: "smooth" });
@@ -134,9 +179,9 @@ export default function LeadForm() {
             >
               Book a Call
             </Button>
-          </div>
+          </motion.div>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 }
