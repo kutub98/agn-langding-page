@@ -19,6 +19,7 @@ export default function Pricing() {
         "Priority matching",
         "Dedicated manager",
       ],
+      featured: true,
     },
     {
       name: "Scale",
@@ -28,34 +29,79 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">Simple Pricing</h2>
-        <p className="text-gray-600 mb-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-5xl font-extrabold mb-4"
+        >
+          Simple Pricing
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-gray-600 mb-12"
+        >
           Flexible plans starting at <strong>$8 / hour</strong>. No hidden fees.
-        </p>
+        </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="p-6"
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: i * 0.2, duration: 0.6 }}
             >
-              <Card className="p-6 text-left">
-                <h3 className="text-xl font-semibold mb-2">{p.name}</h3>
-                <div className="text-2xl font-bold mb-4">{p.priceText}</div>
+              <Card
+                className={`p-8 text-left rounded-3xl border ${
+                  p.featured
+                    ? "bg-gradient-to-r from-blue-500/20 via-purple-500/10 to-blue-500/20 border-blue-500 shadow-2xl"
+                    : "bg-white/80 border-gray-200 shadow-lg"
+                } hover:shadow-2xl hover:-translate-y-2 transition-all duration-300`}
+              >
+                {p.featured && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-500 text-white text-xs rounded-full font-semibold">
+                    Most Popular
+                  </div>
+                )}
 
-                <ul className="mb-6 text-sm space-y-2">
+                <h3 className="text-xl font-semibold mb-2">{p.name}</h3>
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                  className={`text-2xl font-bold mb-6 ${
+                    p.featured ? "text-blue-600" : "text-gray-900"
+                  }`}
+                >
+                  {p.priceText}
+                </motion.div>
+
+                <ul className="mb-6 text-sm space-y-3">
                   {p.features.map((f, idx) => (
-                    <li key={idx} className="text-gray-600">
-                      • {f}
-                    </li>
+                    <motion.li
+                      key={idx}
+                      initial={{ x: -10, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="text-gray-700 flex items-center gap-2"
+                    >
+                      <span className="text-blue-500 font-bold">✔</span>
+                      {f}
+                    </motion.li>
                   ))}
                 </ul>
 
                 <Button
+                  size="lg"
+                  className={`w-full rounded-full px-8 ${
+                    p.featured
+                      ? "bg-blue-500 text-white hover:bg-blue-600"
+                      : "bg-white border border-blue-500 text-blue-600 hover:bg-blue-50"
+                  } transition-colors duration-300`}
                   onClick={() =>
                     document
                       .getElementById("lead-form")
