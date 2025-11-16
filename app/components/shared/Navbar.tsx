@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -30,9 +31,13 @@ export default function Navbar() {
       >
         <nav className="container mx-auto flex justify-between items-center p-4">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold tracking-tight">
+          <Link
+            href="/"
+            className="text-2xl flex  font-bold tracking-tight"
+          >
+            <Image src="/logo1.png" width={40} height={40} alt="logo" />
             <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-              MyLogo
+              Agn-Inc
             </span>
           </Link>
 

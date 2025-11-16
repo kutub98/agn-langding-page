@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -8,9 +10,16 @@ export default function Footer() {
       <div className="max-w-7xl px-4 mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Column 1 */}
         <div>
-          <h2 className="text-3xl font-extrabold mb-3 tracking-tight">
-            My Website
-          </h2>
+          <Link href="/" className="text-2xl flex  font-bold tracking-tight ">
+            <Image
+              src="/logo1.png"
+              width={40}
+              height={40}
+              alt="logo"
+              className="bg-white rounded-full"
+            />
+            <span className="text-white ml-1">Agn-Inc</span>
+          </Link>
           <p className="text-gray-50 max-w-xs">
             The ultimate platform to learn, grow, and level up your skills.
           </p>
